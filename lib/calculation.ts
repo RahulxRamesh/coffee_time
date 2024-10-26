@@ -7,9 +7,9 @@ export interface CalculationData {
 export const calculateResult = (data: CalculationData): string => {
     let time = 0
     let amount = Number(data.caffeine_amount)
-    let startTime = Number(data.time_ingested)
-    let threshhold = 1
-    let halfLife = 5
+    const startTime = Number(data.time_ingested)
+    const threshhold = 1
+    const halfLife = 5
     let endTime = ""
 
     while ( amount > threshhold ){
