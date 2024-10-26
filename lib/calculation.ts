@@ -5,5 +5,19 @@ export interface CalculationData {
 }
 
 export const calculateResult = (data: CalculationData): string => {
-   return 'some words'
+    let time = 0
+    let amount = Number(data.caffeine_amount)
+    let startTime = Number(data.time_ingested)
+    let threshhold = 1
+    let halfLife = 5
+    let endTime = ""
+
+    while ( amount > threshhold ){
+        amount *= 0.5
+        time += halfLife 
+    }
+
+    endTime = `The caffeine will leave your system in ${time} hrs`
+
+   return endTime
 };

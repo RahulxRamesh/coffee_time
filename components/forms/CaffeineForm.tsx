@@ -86,9 +86,12 @@ const CaffeineForm = () => {
        
         <SubmitButton isLoading={isLoading}>Calculate</SubmitButton>
       </form>
+
       {result !== null && (
-                <div style={{ marginTop: '20px' }}>
-                    <strong>Result: {result}</strong>
+                <div className="animate-bounce w-300 h-250 border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto" style={{ marginTop: '40px' }}>
+                  <div className="animate-pulse flex space-x-4">
+                    <strong>{result}</strong>
+                    </div>
                 </div>)}
     </Form>
   )
