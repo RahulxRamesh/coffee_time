@@ -24,12 +24,14 @@ interface CustomProps {
     disable?: boolean,
     dateFormat?: string,
     children?: React.ReactNode,
+    maxLength?: number,
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
     renderSkeleton?: (field: any) => React.ReactNode,
 
 }
 
 const RenderField = ( {field, props}: {field: any; props: CustomProps } ) => {
-    const {fieldType, iconSrc, iconAlt, placeholder} = props;
+    const {fieldType, iconSrc, iconAlt, placeholder, maxLength, onChange} = props;
 
     switch (fieldType){
         case FormFieldType.INPUT:
@@ -38,6 +40,7 @@ const RenderField = ( {field, props}: {field: any; props: CustomProps } ) => {
                     <FormControl>
                         <Input
                             placeholder={placeholder}
+                            maxLength={maxLength}
                             {...field}
                             className="shad-input border-0"
                         />
@@ -50,11 +53,12 @@ const RenderField = ( {field, props}: {field: any; props: CustomProps } ) => {
 }
 
 const CustomFormField = (props: CustomProps) => {
-    const { control, fieldType, name, label } = props;
+    const { control, fieldType, name, label, maxLength } = props;
   return (
     <FormField
     control={control}
     name={name}
+    
     render={({ field }) => (
       <FormItem className="flex-1">
         {fieldType !== FormFieldType.CHECKBOX && label && (

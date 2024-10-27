@@ -66,6 +66,7 @@ const CaffeineForm = () => {
             name="caffeine_type"
             label="caffeine type"
             placeholder="vanilla mocha latte.."
+            maxLength={20}
         />
 
         <CustomFormField
@@ -74,6 +75,7 @@ const CaffeineForm = () => {
             name="caffeine_amount"
             label="amount"
             placeholder="100 mg ..."
+            maxLength={4}
         />
 
         <CustomFormField
@@ -82,6 +84,7 @@ const CaffeineForm = () => {
             name="time_ingested"
             label="time taken"
             placeholder="3pm ..."
+            maxLength={10}
         />
        
         <SubmitButton isLoading={isLoading}>Calculate</SubmitButton>
